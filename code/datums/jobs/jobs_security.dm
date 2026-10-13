@@ -7,6 +7,7 @@ ABSTRACT_TYPE(/datum/job/security)
 	receives_miranda = TRUE
 	job_category = JOB_SECURITY
 	email_group = MGD_SECURITY
+	badge_random = /obj/item/clothing/suit/security_badge/random
 
 /datum/job/security/security_officer
 	name = "Security Officer"
@@ -23,6 +24,7 @@ ABSTRACT_TYPE(/datum/job/security)
 	receives_implants = list(/obj/item/implant/health/security/anti_mindhack)
 	receives_disk = /obj/item/disk/data/floppy/security
 	badge = /obj/item/clothing/suit/security_badge
+	badge_random_chance = 30
 	slot_back = list(/obj/item/storage/backpack/security)
 	slot_belt = list(/obj/item/device/pda2/security)
 	slot_jump = list(/obj/item/clothing/under/rank/security)
@@ -83,6 +85,7 @@ ABSTRACT_TYPE(/datum/job/security)
 	trait_list = list("training_drinker", "training_forensic")
 	access_string = "Detective"
 	badge = /obj/item/clothing/suit/security_badge
+	badge_random_chance = 30
 	invalid_antagonist_roles = list(ROLE_HEAD_REVOLUTIONARY, ROLE_GANG_LEADER, ROLE_GANG_MEMBER, ROLE_CONSPIRATOR)
 	allow_antag_fallthrough = FALSE
 	unique = TRUE

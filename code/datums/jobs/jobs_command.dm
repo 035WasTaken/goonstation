@@ -104,6 +104,8 @@ ABSTRACT_TYPE(/datum/job/command)
 	world_announce_priority = ANNOUNCE_ORDER_HOS
 	receives_disk = /obj/item/disk/data/floppy/sec_command
 	badge = /obj/item/clothing/suit/security_badge
+	badge_random = /obj/item/clothing/suit/security_badge/random
+	badge_random_chance = 30
 	show_in_id_comp = FALSE
 	receives_implants = list(/obj/item/implant/health/security/anti_mindhack/command)
 	items_in_backpack = list(/obj/item/device/flash)

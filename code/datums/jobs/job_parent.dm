@@ -42,6 +42,8 @@ ABSTRACT_TYPE(/datum/job)
 	var/list/receives_implants = null //! List of object paths of implant types given on spawn.
 	var/receives_disk = FALSE //! Job spawns with cloning data disk, can specify a type
 	var/obj/item/clothing/suit/security_badge/badge = null //! Typepath of the badge to spawn the player with
+	var/obj/item/clothing/suit/security_badge/random/badge_random = null //! Typepath of the badge to spawn the player with if they roll a random badge
+	var/badge_random_chance = 0 //! Chance to spawn with a random badge, if the job has a badge typepath defined
 	var/world_announce_priority = ANNOUNCE_ORDER_NEVER //! On join, send message to all players indicating who is fulfilling the role; ordered by rank, ANNOUNCE_ORDER_NEVER to never announce
 	var/radio_announcement = TRUE //! The announcement computer will send a message when the player joins after round-start.
 	var/list/alt_names = list()

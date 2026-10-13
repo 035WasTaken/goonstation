@@ -618,11 +618,17 @@ Equip items from body traits.
 				D.UpdateName()
 
 			if(JOB.badge)
-				var/obj/item/clothing/suit/security_badge/badge = new JOB.badge(src)
+				var/obj/item/clothing/suit/security_badge/badge = null
+
+				if(JOB.badge_random_chance && prob(JOB.badge_random_chance))
+					badge = new JOB.badge_random(src)
+				else
+					badge = new JOB.badge(src)
+					badge.badge_owner_name = src.real_name
+					badge.badge_owner_job = src.job
+
 				if (!src.equip_if_possible(badge, SLOT_WEAR_SUIT))
 					src.equip_if_possible(badge, SLOT_IN_BACKPACK)
-				badge.badge_owner_name = src.real_name
-				badge.badge_owner_job = src.job
 
 	if (src.traitHolder?.hasTrait("pilot"))
 		var/obj/item/tank/extra_air
