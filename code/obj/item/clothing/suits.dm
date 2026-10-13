@@ -2321,6 +2321,39 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/sweater_vest)
 	attack(mob/target, mob/user, def_zone, is_special = FALSE, params = null)
 		src.show_off_badge(user, target)
 
+/obj/item/clothing/suit/security_badge/random
+	var/list/possible_jobs = new()
+
+	New()
+		. = ..()
+		possible_jobs = list("Security Officer", "Security Assistant", "Head of Security", "Detective")
+		badge_owner_job = possible_jobs[rand(1, possible_jobs.len)]
+		badge_owner_name = random_name(NEUTER)
+
+	get_desc()
+		. = ..()
+		. += " Er... who is that?"
+
+	show_off_badge(var/mob/user, var/mob/target = null)
+		..()
+
+/obj/item/clothing/suit/security_badge/random/true_random
+	name = "Super! Official Security Badge"
+	desc = "An... official? badge for a Nanotrasen Security Worker."
+	tooltip_flags = REBUILD_ALWAYS
+
+	show_off_badge(var/mob/user, var/mob/target = null)
+		if(GET_COOLDOWN(user, "showoff_item"))
+			return
+
+		// pick a random name and job each time it's shown off
+		badge_owner_job = possible_jobs[rand(1, possible_jobs.len)]
+		badge_owner_name = random_name(NEUTER)
+
+		..()
+
+
+
 /obj/item/clothing/suit/security_badge/shielded
 	name = "NTSO Tactical Badge"
 	desc = "An official badge for an NTSO operator, with a miniaturized shield projector. Small enough to be used as a backup power cell in a pinch."
@@ -2818,4 +2851,3 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/swimskirt)
 		name = "strawberry swim skirt"
 		icon_state = "swimskirt_strawb"
 		item_state = "swimskirt_strawb"
-
