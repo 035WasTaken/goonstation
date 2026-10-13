@@ -2322,7 +2322,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/sweater_vest)
 		src.show_off_badge(user, target)
 
 /obj/item/clothing/suit/security_badge/random
-	var/list/possible_jobs = new()
+	var/list/possible_jobs
 
 	New()
 		. = ..()
@@ -2348,8 +2348,6 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/sweater_vest)
 		badge_owner_name = random_name(NEUTER)
 
 		..()
-
-
 
 /obj/item/clothing/suit/security_badge/shielded
 	name = "NTSO Tactical Badge"

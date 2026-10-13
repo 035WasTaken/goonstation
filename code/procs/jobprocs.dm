@@ -620,7 +620,7 @@ Equip items from body traits.
 			if(JOB.badge)
 				var/obj/item/clothing/suit/security_badge/badge = null
 
-				if(JOB.badge_random_chance && prob(JOB.badge_random_chance))
+				if(JOB.badge_random && prob(JOB.badge_random_chance) && src.traitHolder && src.traitHolder.hasTrait("clericalerror"))
 					badge = new JOB.badge_random(src)
 				else
 					badge = new JOB.badge(src)
