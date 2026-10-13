@@ -2334,9 +2334,6 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/sweater_vest)
 		. = ..()
 		. += " Er... who is that?"
 
-	show_off_badge(var/mob/user, var/mob/target = null)
-		..()
-
 /obj/item/clothing/suit/security_badge/random/true_random
 	name = "Super! Official Security Badge"
 	desc = "An... official? badge for a Nanotrasen Security Worker."
