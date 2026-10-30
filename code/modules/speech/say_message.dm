@@ -136,6 +136,8 @@
 			var/mob/living/carbon/human/H = mob_speaker
 			src.say_verb ||= H.mutantrace.say_verb()
 			src.voice_ident = H.mutantrace.voice_name || H.voice_name
+		else if (issilicon(mob_speaker))
+			src.card_ident = mob_speaker.get_id().registered
 		else
 			src.voice_ident = mob_speaker.voice_name
 

@@ -116,8 +116,8 @@ TYPEINFO(/mob/living/silicon/robot)
 		APPLY_ATOM_PROPERTY(src, PROP_MOB_EXAMINE_ALL_NAMES, src)
 		SPAWN(0) //Delay PDA spawning until the client is in the borg, so it respects preferences
 			src.internal_pda = new /obj/item/device/pda2/cyborg(src)
-			src.internal_pda.name = "[src]’s Internal PDA Unit"
-			src.internal_pda.owner = "[src.name]"
+			src.internal_pda.name = "[src.real_name]’s Internal PDA Unit"
+			src.internal_pda.owner = "[src.real_name]"
 			src.internal_pda.insert_id_card(src.botcard, src)
 		APPLY_MOVEMENT_MODIFIER(src, /datum/movement_modifier/robot_part/robot_base, "robot_health_slow_immunity")
 		if (frame)
@@ -795,8 +795,8 @@ TYPEINFO(/mob/living/silicon/robot)
 			src.real_name = borgify_name("Cyborg")
 
 		src.UpdateName()
-		src.internal_pda.name = "[src.name]’s Internal PDA Unit"
-		src.internal_pda.owner = "[src.name]"
+		src.internal_pda.name = "[src.real_name]’s Internal PDA Unit"
+		src.internal_pda.owner = "[src.real_name]"
 
 	Login()
 		..()
@@ -807,15 +807,15 @@ TYPEINFO(/mob/living/silicon/robot)
 		if (src.real_name == "Cyborg")
 			src.real_name = borgify_name(src.real_name)
 			src.UpdateName()
-			src.internal_pda?.name = "[src.name]’s Internal PDA Unit"
-			src.internal_pda?.owner = "[src.name]"
+			src.internal_pda?.name = "[src.real_name]’s Internal PDA Unit"
+			src.internal_pda?.owner = "[src.real_name]"
 		if (src.shell && src.mainframe)
 			src.bioHolder.mobAppearance.pronouns = src.client.preferences.AH.pronouns
 			src.real_name = "SHELL/[src.mainframe.name]"
 			src.UpdateName()
 			src.update_name_tag()
-			src.internal_pda?.name = "[src.name]’s Internal PDA Unit"
-			src.internal_pda?.owner = "[src.name]"
+			src.internal_pda?.name = "[src.real_name]’s Internal PDA Unit"
+			src.internal_pda?.owner = "[src.real_name]"
 
 		update_clothing()
 		update_appearance()
